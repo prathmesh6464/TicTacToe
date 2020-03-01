@@ -1,8 +1,10 @@
 import java.util.Random;
 public class TicTacToe
 {
+	//ASSIGNING SYMBOL TO PLAYER
 	static char assignSymbolToPlayer()
 	{
+		//GENERATING RANDOM VALUE
 		Random randomValue = new Random();
 		int chooseSymbol = randomValue.nextInt(2);
 		if(chooseSymbol == 1)
@@ -19,7 +21,8 @@ public class TicTacToe
 
 	}
 
-
+	
+	//GENERATING BOARD
 	static void board()
 	{
 		int[][] board = new int[3][3];
