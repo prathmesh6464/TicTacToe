@@ -9,13 +9,14 @@ public class TicTacToe
 		{
 			System.out.println("Player Assign X Symbol");
 			return 'X';
-			
+
 		}
 		else
 		{
 			System.out.println("Player Assign O Symbol");
 			return 'O';
 		}
+
 	}
 
 
@@ -36,13 +37,29 @@ public class TicTacToe
 		}
 	}
 
-	
+
+	static int toss()
+	{
+		Random randomValue = new Random();
+		int randomValueToss = randomValue.nextInt(2);
+		if(randomValueToss == 1)
+		{
+			System.out.println("Now User Turn : ");
+			return randomValueToss;
+		}
+		else
+		{
+			System.out.println("Now computer Turn : ");
+			return randomValueToss;
+		}
+	}
+
+
 	public static void main(String[] args)
-	{	 
-		//FUCNTION CALLED
+	{ 
 		board();
-		//FUNCTION RETURNING CHAR VALUE
-		char result = assignSymbolToPlayer();
-		System.out.println("Result : "+result);
+		assignSymbolToPlayer();
+		int tossResult = toss();
+		System.out.println("Toss Result : "+tossResult);
 	}
 }
