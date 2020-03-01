@@ -18,7 +18,6 @@ public class TicTacToe
 			System.out.println("Player Assign O Symbol");
 			return 'O';
 		}
-
 	}
 
 	
