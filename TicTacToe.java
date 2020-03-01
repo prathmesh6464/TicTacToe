@@ -1,7 +1,26 @@
+import java.util.Random;
 public class TicTacToe
 {
-	public static void main(String[] args)
-	{ 
+	static char assignSymbolToPlayer()
+	{
+		Random randomValue = new Random();
+		int chooseSymbol = randomValue.nextInt(2);
+		if(chooseSymbol == 1)
+		{
+			System.out.println("Player Assign X Symbol");
+			return 'X';
+			
+		}
+		else
+		{
+			System.out.println("Player Assign O Symbol");
+			return 'O';
+		}
+	}
+
+
+	static void board()
+	{
 		int[][] board = new int[3][3];
 		for(int iter=0; iter<3; iter++)
 		{
@@ -11,9 +30,17 @@ public class TicTacToe
 				{	
 					System.out.print("|");
 				}
-				System.out.print(board[iter][iter2]);
+				System.out.print(board[iter][iter2]);				
 			}
 			System.out.println();
 		}
+	}
+
+	
+	public static void main(String[] args)
+	{ 
+		board();
+		char result = assignSymbolToPlayer();
+		System.out.println("Result : "+result);
 	}
 }
