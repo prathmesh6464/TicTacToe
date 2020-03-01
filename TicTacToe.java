@@ -38,8 +38,10 @@ public class TicTacToe
 
 	
 	public static void main(String[] args)
-	{ 
+	{	 
+		//FUCNTION CALLED
 		board();
+		//FUNCTION RETURNING CHAR VALUE
 		char result = assignSymbolToPlayer();
 		System.out.println("Result : "+result);
 	}
