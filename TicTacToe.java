@@ -37,9 +37,11 @@ public class TicTacToe
 		}
 	}
 
-
+	
+	//TOSS FUNCTION
 	static int toss()
 	{
+		//GENERATING RANDOM VALUE
 		Random randomValue = new Random();
 		int randomValueToss = randomValue.nextInt(2);
 		if(randomValueToss == 1)
@@ -59,6 +61,7 @@ public class TicTacToe
 	{ 
 		board();
 		assignSymbolToPlayer();
+		//TOSS FUNCTION CALLED
 		int tossResult = toss();
 		System.out.println("Toss Result : "+tossResult);
 	}
