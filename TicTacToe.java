@@ -1,6 +1,46 @@
 import java.util.Random;
+import java.util.Scanner;
 public class TicTacToe
 {
+	//2D BOARD ARRAY DECLARED
+	static char[][] board = new char[3][3];
+
+	//GENERATING BOARD
+	static void resetBoard()
+	{
+		for(int iter=0; iter<3; iter++)
+		{
+			for(int iter2=0; iter2<3; iter2++)
+			{	
+				if(iter2 != 0)
+				{	
+					System.out.print('|');
+				}
+				board[iter][iter2] = '0';
+				System.out.print(board[iter][iter2]);				
+			}
+			System.out.println();
+		}
+	}
+
+
+	static void showBoard()
+	{
+		for(int iter=0; iter<3; iter++)
+		{
+			for(int iter2=0; iter2<3; iter2++)
+			{	
+				if(iter2 != 0)
+				{	
+					System.out.print('|');
+				}
+				System.out.print(board[iter][iter2]);				
+			}
+			System.out.println();
+		}
+	}
+
+
 	//ASSIGNING SYMBOL TO PLAYER
 	static char assignSymbolToPlayer()
 	{
@@ -18,29 +58,9 @@ public class TicTacToe
 			System.out.println("Player Assign O Symbol");
 			return 'O';
 		}
-
 	}
 
-	
-	//GENERATING BOARD
-	static void board()
-	{
-		int[][] board = new int[3][3];
-		for(int iter=0; iter<3; iter++)
-		{
-			for(int iter2=0; iter2<3; iter2++)
-			{	
-				if(iter2 != 0)
-				{	
-					System.out.print("|");
-				}
-				System.out.print(board[iter][iter2]);				
-			}
-			System.out.println();
-		}
-	}
 
-	
 	//TOSS FUNCTION
 	static int toss()
 	{
@@ -49,23 +69,85 @@ public class TicTacToe
 		int randomValueToss = randomValue.nextInt(2);
 		if(randomValueToss == 1)
 		{
-			System.out.println("Now User Turn : ");
+			System.out.println("Now User Turn ");
 			return randomValueToss;
 		}
 		else
 		{
-			System.out.println("Now computer Turn : ");
+			System.out.println("Now computer Turn ");
 			return randomValueToss;
 		}
 	}
 
 
+	//PLAY GAME
+	static void play()
+	{	
+		char playerSymbol = assignSymbolToPlayer();
+		int temp = 0;
+		int temp2 = 0 ;
+		int whoWillPlay = 0;
+		char computerSymbol = '0';
+		if (playerSymbol == 'x')
+		{
+			computerSymbol = 'O';
+		}
+		else
+		{
+			computerSymbol = 'x';
+		}
+		//TOSS FUNCTION CALLED
+		if(temp == 0)
+		{
+			whoWillPlay = toss();
+		}
+
+
+		if(whoWillPlay == 1 && temp2 == 0)
+		{
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter Row Number : ");
+			int row =sc.nextInt();
+			System.out.println("Enter Column Number : ");
+			int column =sc.nextInt();
+			System.out.println("Play Enter Your Value ("+playerSymbol+") : ");
+			char userValue = sc.next().charAt(0);
+			if(board[row][column] == '0')
+			{
+				board[row][column] = userValue;
+				showBoard();
+			}
+			else
+			{
+				System.out.println("Entered Position Is Occupied Please Play Again");
+				temp++;
+				play();
+			}
+		}
+		else
+		{
+
+			Random randomValue = new Random();
+			int row = randomValue.nextInt(3);
+			int column = randomValue.nextInt(3);
+
+			if(board[row][column] == '0')
+			{
+				board[row][column] = computerSymbol;
+				showBoard();
+			}
+			else
+			{
+				temp2++;
+				play();
+			}			
+		}		
+	}
+
+
 	public static void main(String[] args)
 	{ 
-		board();
-		assignSymbolToPlayer();
-		//TOSS FUNCTION CALLED
-		int tossResult = toss();
-		System.out.println("Toss Result : "+tossResult);
+		resetBoard();
+		play();
 	}
 }
