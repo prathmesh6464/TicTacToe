@@ -5,7 +5,24 @@ public class TicTacToe
 	//2D ARRAY DECLARED 
 	static char[][] board = new char[3][3];
 
-	
+	//GENERATE RANDOM ROW AND COLUMN METHOD
+	static int getRowColumn()
+	{
+		Random randomValue = new Random();
+		int randomRowColumn = randomValue.nextInt(3);
+		return randomRowColumn;
+	}
+
+
+	//GENERATE RANDOM ROW AND COLUMN METHOD
+	static int getNumber()
+	{
+		Random randomValue = new Random();
+		int randomNumber = randomValue.nextInt(2);
+		return randomNumber;
+	}
+
+
 	//RESETING BOARD
 	static void resetBoard()
 	{
@@ -46,16 +63,16 @@ public class TicTacToe
 	static char assignSymbolToPlayer()
 	{
 		//GENERATING RANDOM VALUE
-		Random randomValue = new Random();
-		int chooseSymbol = randomValue.nextInt(2);
+		//Random randomValue = new Random();
+		int chooseSymbol = getNumber();
 		if(chooseSymbol == 1)
 		{
-			System.out.println("Player Assign X Symbol");
+			System.out.println("Player assign X symbol");
 			return 'X';
 		}
 		else
 		{
-			System.out.println("Player Assign O Symbol");
+			System.out.println("Player assign O symbol");
 			return 'O';
 		}
 	}
@@ -65,97 +82,146 @@ public class TicTacToe
 	static int toss()
 	{
 		//GENERATING RANDOM VALUE
-		Random randomValue = new Random();
-		int randomValueToss = randomValue.nextInt(2);
+		//Random randomValue = new Random();
+		int randomValueToss = getNumber();
 		if(randomValueToss == 1)
 		{
-			System.out.println("Now User Turn ");
+			System.out.println("Now Player turn ");
 			return randomValueToss;
 		}
 		else
 		{
-			System.out.println("Now computer Turn ");
+			System.out.println("Now computer turn ");
 			return randomValueToss;
 		}
 	}
 
 
+	//PLAYER
+	static void playerPlaying(char playerSymbol)
+	{
+		//TAKING INPUT FROM USER 
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter row number : ");
+		int row =sc.nextInt();
+		System.out.println("Enter column number : ");
+		int column =sc.nextInt();
+		System.out.println("Play enter your value ("+playerSymbol+") : ");
+		char userValue = sc.next().charAt(0);
+		if(board[row][column] == '0')
+		{
+			board[row][column] = userValue;
+			
+			showBoard();
+		}
+		else
+		{
+			System.out.println("Entered position is occupied please play again");
+			playerPlaying(playerSymbol);
+		}
+	}
+
+
+	//COMPUTER
+	static void computerPlayer(char computerSymbol)
+	{
+		int row = getRowColumn();
+		int column = getRowColumn();
+
+
+		if(board[row][column] == '0')
+		{
+			board[row][column] = computerSymbol;
+			System.out.println("After Computer Turn : ");
+			
+			showBoard();
+		}
+		else
+		{
+			computerPlayer(computerSymbol);
+		}			
+	}
+
+
 	//PLAY GAME
-	static void play()
+	static void play(char playerSymbol,char computerSymbol,int whoWillPlay)
 	{	
-		//VARIABLES
+		//TOSS METHOD CALLED
+		if(whoWillPlay == 1)
+		{
+
+			playerPlaying(playerSymbol);
+			computerPlayer(computerSymbol);
+		}
+		else
+		{
+			computerPlayer(computerSymbol);
+			playerPlaying(playerSymbol);
+		}		
+	}
+
+
+	public static void main(String[] args)
+	{
+		//METHOD CALLED
+		resetBoard();		
 		char playerSymbol = assignSymbolToPlayer();
-		int temp = 0;
-		int temp2 = 0 ;
-		int whoWillPlay = 0;
 		char computerSymbol = '0';
-		
-		
 		//ASSIGNING SYMBOL TO COMPUTER PLAYER
-		if (playerSymbol == 'x')
+		if (playerSymbol == 'X' || playerSymbol == 'x')
 		{
 			computerSymbol = 'O';
 		}
 		else
 		{
-			computerSymbol = 'x';
-		}
-		
-		
-		//TOSS METHOD CALLED
-		if(temp == 0)
-		{
-			whoWillPlay = toss();
+			computerSymbol = 'X';
 		}
 
-
-		if(whoWillPlay == 1 && temp2 == 0)
+		int whoWillPlay = toss();
+		while(true)
 		{
-			//TAKING INPUT FROM USER 
-			Scanner sc = new Scanner(System.in);
-			System.out.println("Enter Row Number : ");
-			int row =sc.nextInt();
-			System.out.println("Enter Column Number : ");
-			int column =sc.nextInt();
-			System.out.println("Play Enter Your Value ("+playerSymbol+") : ");
-			char userValue = sc.next().charAt(0);
-			if(board[row][column] == '0')
+			play(playerSymbol,computerSymbol,whoWillPlay);
+			
+			
+			if((board[0][0] == computerSymbol && board[0][1] == computerSymbol && (board[0][2] == computerSymbol)) ||
+					(board[1][0] == computerSymbol && board[1][1] == computerSymbol && (board[1][2] == computerSymbol)) ||
+					(board[2][0] == computerSymbol && board[2][1] == computerSymbol && (board[2][2] == computerSymbol)) || 
+					(board[0][0] == computerSymbol && board[1][0] == computerSymbol && (board[2][0] == computerSymbol)) || 
+					(board[0][1] == computerSymbol && board[1][1] == computerSymbol && (board[2][1] == computerSymbol)) || 
+					(board[0][2] == computerSymbol && board[1][2] == computerSymbol && (board[2][2] == computerSymbol)) ||
+					(board[0][0] == computerSymbol && board[1][1] == computerSymbol && (board[2][2] == computerSymbol)) || 
+					(board[2][0] == computerSymbol && board[1][1] == computerSymbol && (board[0][2] == computerSymbol)))
 			{
-				board[row][column] = userValue;
+				System.out.println("Board values :");
 				showBoard();
-			}
-			else
-			{
-				System.out.println("Entered Position Is Occupied Please Play Again");
-				temp++;
-				play();
-			}
-		}
-		else
-		{
-			//GENERATING RANDOM VALUE FOR COMPUTER PLAYER 
-			Random randomValue = new Random();
-			int row = randomValue.nextInt(3);
-			int column = randomValue.nextInt(3);
-
-			if(board[row][column] == '0')
-			{
-				board[row][column] = computerSymbol;
-				showBoard();
-			}
-			else
-			{
-				temp2++;
-				play();
+				System.out.println("Computer player won");
+				break; 
 			}			
-		}		
-	}
-
-	
-	public static void main(String[] args)
-	{
-		//METHOD CALLED
-		resetBoard();
-		play();
+			else if((board[0][0] == playerSymbol && board[0][1] == playerSymbol && (board[0][2] == playerSymbol)) || 
+					(board[1][0] == playerSymbol && board[1][1] == playerSymbol && (board[1][2] == playerSymbol)) ||
+					(board[2][0] == playerSymbol && board[2][1] == playerSymbol && (board[2][2] == playerSymbol)) || 
+					(board[0][0] == playerSymbol && board[1][0] == playerSymbol && (board[2][0] == playerSymbol)) || 
+					(board[0][1] == playerSymbol && board[1][1] == playerSymbol && (board[2][1] == playerSymbol)) || 
+					(board[0][2] == playerSymbol && board[1][2] == playerSymbol && (board[2][2] == playerSymbol)) ||
+					(board[0][0] == playerSymbol && board[1][1] == playerSymbol && (board[2][2] == playerSymbol)) || 
+					(board[2][0] == playerSymbol && board[1][1] == playerSymbol && (board[0][2] == playerSymbol)))
+			{
+				System.out.println("Board values :");
+				showBoard();
+				System.out.println("player won");
+				break;
+			}
+			else if(((board[0][0] == playerSymbol && board[0][1] == playerSymbol && (board[0][2] != playerSymbol)) || 
+					(board[1][0] == playerSymbol && board[1][1] == playerSymbol && (board[1][2] != playerSymbol)) ||
+					(board[2][0] == playerSymbol && board[2][1] == playerSymbol && (board[2][2] != playerSymbol)) || 
+					(board[0][0] == playerSymbol && board[1][0] == playerSymbol && (board[2][0] != playerSymbol)) || 
+					(board[0][1] == playerSymbol && board[1][1] == playerSymbol && (board[2][1] != playerSymbol)) || 
+					(board[0][2] == playerSymbol && board[1][2] == playerSymbol && (board[2][2] != playerSymbol)) ||
+					(board[0][0] == playerSymbol && board[1][1] == playerSymbol && (board[2][2] != playerSymbol)) || 
+					(board[2][0] == playerSymbol && board[1][1] == playerSymbol && (board[0][2] != playerSymbol))))
+			{
+								
+			}
+		}
 	}
 }
