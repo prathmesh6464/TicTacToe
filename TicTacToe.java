@@ -2,10 +2,11 @@ import java.util.Random;
 import java.util.Scanner;
 public class TicTacToe
 {
-	//2D BOARD ARRAY DECLARED
+	//2D ARRAY DECLARED 
 	static char[][] board = new char[3][3];
 
-	//GENERATING BOARD
+	
+	//RESETING BOARD
 	static void resetBoard()
 	{
 		for(int iter=0; iter<3; iter++)
@@ -51,7 +52,6 @@ public class TicTacToe
 		{
 			System.out.println("Player Assign X Symbol");
 			return 'X';
-
 		}
 		else
 		{
@@ -61,7 +61,7 @@ public class TicTacToe
 	}
 
 
-	//TOSS FUNCTION
+	//TOSS METHOD
 	static int toss()
 	{
 		//GENERATING RANDOM VALUE
@@ -83,11 +83,15 @@ public class TicTacToe
 	//PLAY GAME
 	static void play()
 	{	
+		//VARIABLES
 		char playerSymbol = assignSymbolToPlayer();
 		int temp = 0;
 		int temp2 = 0 ;
 		int whoWillPlay = 0;
 		char computerSymbol = '0';
+		
+		
+		//ASSIGNING SYMBOL TO COMPUTER PLAYER
 		if (playerSymbol == 'x')
 		{
 			computerSymbol = 'O';
@@ -96,7 +100,9 @@ public class TicTacToe
 		{
 			computerSymbol = 'x';
 		}
-		//TOSS FUNCTION CALLED
+		
+		
+		//TOSS METHOD CALLED
 		if(temp == 0)
 		{
 			whoWillPlay = toss();
@@ -105,6 +111,7 @@ public class TicTacToe
 
 		if(whoWillPlay == 1 && temp2 == 0)
 		{
+			//TAKING INPUT FROM USER 
 			Scanner sc = new Scanner(System.in);
 			System.out.println("Enter Row Number : ");
 			int row =sc.nextInt();
@@ -126,7 +133,7 @@ public class TicTacToe
 		}
 		else
 		{
-
+			//GENERATING RANDOM VALUE FOR COMPUTER PLAYER 
 			Random randomValue = new Random();
 			int row = randomValue.nextInt(3);
 			int column = randomValue.nextInt(3);
@@ -144,9 +151,10 @@ public class TicTacToe
 		}		
 	}
 
-
+	
 	public static void main(String[] args)
-	{ 
+	{
+		//METHOD CALLED
 		resetBoard();
 		play();
 	}
