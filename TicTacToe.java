@@ -5,6 +5,11 @@ public class TicTacToe
 	//2D ARRAY DECLARED 
 	static char[][] board = new char[3][3];
 
+
+	//STATIC VARIABLE
+	static int tieOrNot = 0;
+
+
 	//GENERATE RANDOM ROW AND COLUMN METHOD
 	static int getRowColumn()
 	{
@@ -34,7 +39,7 @@ public class TicTacToe
 				{	
 					System.out.print('|');
 				}
-				board[iter][iter2] = '0';
+				board[iter][iter2] = '_';
 				System.out.print(board[iter][iter2]);				
 			}
 			System.out.println();
@@ -108,11 +113,28 @@ public class TicTacToe
 		int column =sc.nextInt();
 		System.out.println("Play enter your value ("+playerSymbol+") : ");
 		char userValue = sc.next().charAt(0);
-		if(board[row][column] == '0')
+		if(board[row][column] == '_')
 		{
 			board[row][column] = userValue;
-			
+			tieOrNot++;
 			showBoard();
+			if((board[0][0] == playerSymbol && board[0][1] == playerSymbol && (board[0][2] == playerSymbol)) || 
+					(board[1][0] == playerSymbol && board[1][1] == playerSymbol && (board[1][2] == playerSymbol)) ||
+					(board[2][0] == playerSymbol && board[2][1] == playerSymbol && (board[2][2] == playerSymbol)) || 
+					(board[0][0] == playerSymbol && board[1][0] == playerSymbol && (board[2][0] == playerSymbol)) || 
+					(board[0][1] == playerSymbol && board[1][1] == playerSymbol && (board[2][1] == playerSymbol)) || 
+					(board[0][2] == playerSymbol && board[1][2] == playerSymbol && (board[2][2] == playerSymbol)) ||
+					(board[0][0] == playerSymbol && board[1][1] == playerSymbol && (board[2][2] == playerSymbol)) || 
+					(board[2][0] == playerSymbol && board[1][1] == playerSymbol && (board[0][2] == playerSymbol)))
+			{
+				System.out.println("player won");
+				System.exit(0); 
+			}
+			if(tieOrNot == 9)
+			{
+				System.out.println("Game Tie");
+				System.exit(0);
+			}
 		}
 		else
 		{
@@ -125,20 +147,37 @@ public class TicTacToe
 	//COMPUTER
 	static void computerPlayer(char computerSymbol)
 	{
+		//TAKING RANDOM ROW AND COLUMN
 		int row = getRowColumn();
 		int column = getRowColumn();
-
-
-		if(board[row][column] == '0')
+		if(board[row][column] == '_')
 		{
 			board[row][column] = computerSymbol;
 			System.out.println("After Computer Turn : ");
-			
+			tieOrNot++;
 			showBoard();
+			if((board[0][0] == computerSymbol && board[0][1] == computerSymbol && (board[0][2] == computerSymbol)) ||
+					(board[1][0] == computerSymbol && board[1][1] == computerSymbol && (board[1][2] == computerSymbol)) ||
+					(board[2][0] == computerSymbol && board[2][1] == computerSymbol && (board[2][2] == computerSymbol)) || 
+					(board[0][0] == computerSymbol && board[1][0] == computerSymbol && (board[2][0] == computerSymbol)) || 
+					(board[0][1] == computerSymbol && board[1][1] == computerSymbol && (board[2][1] == computerSymbol)) || 
+					(board[0][2] == computerSymbol && board[1][2] == computerSymbol && (board[2][2] == computerSymbol)) ||
+					(board[0][0] == computerSymbol && board[1][1] == computerSymbol && (board[2][2] == computerSymbol)) || 
+					(board[2][0] == computerSymbol && board[1][1] == computerSymbol && (board[0][2] == computerSymbol)))
+			{
+				System.out.println("Computer player won");
+				System.exit(0); 
+			}
+			if(tieOrNot == 9)
+			{
+				System.out.println("Game Tie");
+				System.exit(0);
+			}
 		}
 		else
 		{
-			computerPlayer(computerSymbol);
+			System.out.println("Entered position is occupied please play again");
+			computerPlayer(computerSymbol);			
 		}			
 	}
 
@@ -166,7 +205,7 @@ public class TicTacToe
 		//METHOD CALLED
 		resetBoard();		
 		char playerSymbol = assignSymbolToPlayer();
-		char computerSymbol = '0';
+		char computerSymbol = '_';
 		//ASSIGNING SYMBOL TO COMPUTER PLAYER
 		if (playerSymbol == 'X' || playerSymbol == 'x')
 		{
@@ -181,47 +220,6 @@ public class TicTacToe
 		while(true)
 		{
 			play(playerSymbol,computerSymbol,whoWillPlay);
-			
-			
-			if((board[0][0] == computerSymbol && board[0][1] == computerSymbol && (board[0][2] == computerSymbol)) ||
-					(board[1][0] == computerSymbol && board[1][1] == computerSymbol && (board[1][2] == computerSymbol)) ||
-					(board[2][0] == computerSymbol && board[2][1] == computerSymbol && (board[2][2] == computerSymbol)) || 
-					(board[0][0] == computerSymbol && board[1][0] == computerSymbol && (board[2][0] == computerSymbol)) || 
-					(board[0][1] == computerSymbol && board[1][1] == computerSymbol && (board[2][1] == computerSymbol)) || 
-					(board[0][2] == computerSymbol && board[1][2] == computerSymbol && (board[2][2] == computerSymbol)) ||
-					(board[0][0] == computerSymbol && board[1][1] == computerSymbol && (board[2][2] == computerSymbol)) || 
-					(board[2][0] == computerSymbol && board[1][1] == computerSymbol && (board[0][2] == computerSymbol)))
-			{
-				System.out.println("Board values :");
-				showBoard();
-				System.out.println("Computer player won");
-				break; 
-			}			
-			else if((board[0][0] == playerSymbol && board[0][1] == playerSymbol && (board[0][2] == playerSymbol)) || 
-					(board[1][0] == playerSymbol && board[1][1] == playerSymbol && (board[1][2] == playerSymbol)) ||
-					(board[2][0] == playerSymbol && board[2][1] == playerSymbol && (board[2][2] == playerSymbol)) || 
-					(board[0][0] == playerSymbol && board[1][0] == playerSymbol && (board[2][0] == playerSymbol)) || 
-					(board[0][1] == playerSymbol && board[1][1] == playerSymbol && (board[2][1] == playerSymbol)) || 
-					(board[0][2] == playerSymbol && board[1][2] == playerSymbol && (board[2][2] == playerSymbol)) ||
-					(board[0][0] == playerSymbol && board[1][1] == playerSymbol && (board[2][2] == playerSymbol)) || 
-					(board[2][0] == playerSymbol && board[1][1] == playerSymbol && (board[0][2] == playerSymbol)))
-			{
-				System.out.println("Board values :");
-				showBoard();
-				System.out.println("player won");
-				break;
-			}
-			else if(((board[0][0] == playerSymbol && board[0][1] == playerSymbol && (board[0][2] != playerSymbol)) || 
-					(board[1][0] == playerSymbol && board[1][1] == playerSymbol && (board[1][2] != playerSymbol)) ||
-					(board[2][0] == playerSymbol && board[2][1] == playerSymbol && (board[2][2] != playerSymbol)) || 
-					(board[0][0] == playerSymbol && board[1][0] == playerSymbol && (board[2][0] != playerSymbol)) || 
-					(board[0][1] == playerSymbol && board[1][1] == playerSymbol && (board[2][1] != playerSymbol)) || 
-					(board[0][2] == playerSymbol && board[1][2] == playerSymbol && (board[2][2] != playerSymbol)) ||
-					(board[0][0] == playerSymbol && board[1][1] == playerSymbol && (board[2][2] != playerSymbol)) || 
-					(board[2][0] == playerSymbol && board[1][1] == playerSymbol && (board[0][2] != playerSymbol))))
-			{
-								
-			}
 		}
 	}
 }
