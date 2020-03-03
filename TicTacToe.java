@@ -151,7 +151,8 @@ public class TicTacToe
 		int row = getRowColumn();
 		int column = getRowColumn();
 
-
+		
+		//CONDITIONS FOR CHECKING BLOCK PLAYER WINNING MOVE AND WINNING MOVES OF COMPUTER PLAYER 
 		if(board[row][column] == '_')
 		{                                                                                                                                                                                    
 			if(board[0][0] == computerSymbol && board[0][2] == computerSymbol && board[0][1] == '_' ||
