@@ -145,14 +145,127 @@ public class TicTacToe
 
 
 	//COMPUTER
-	static void computerPlayer(char computerSymbol)
+	static void computerPlayer(char computerSymbol,char playerSymbol)
 	{
 		//TAKING RANDOM ROW AND COLUMN
 		int row = getRowColumn();
 		int column = getRowColumn();
 		if(board[row][column] == '_')
+<<<<<<< Updated upstream
 		{
 			board[row][column] = computerSymbol;
+=======
+		{                                                                                                                                                                                    
+			if(board[0][0] == computerSymbol && board[0][2] == computerSymbol && board[0][1] == '_' ||
+					board[0][0] == playerSymbol && board[0][2] == playerSymbol && board[0][1] == '_')
+			{
+				board[0][1] = computerSymbol;
+			}
+			else if(board[1][0] == computerSymbol && board[1][2] == computerSymbol && board[1][1] == '_' ||
+					board[1][0] == playerSymbol && board[1][2] == playerSymbol && board[1][1] == '_')
+			{
+				board[1][1] = computerSymbol;
+			}
+			else if(board[2][0] == computerSymbol && board[2][2] == computerSymbol && board[2][1] == '_' ||
+					board[2][0] == playerSymbol && board[2][2] == playerSymbol && board[2][1] == '_')
+			{
+				board[2][1] = computerSymbol;
+			}
+			else if(board[0][0] == computerSymbol && board[2][0] == computerSymbol && board[1][0] == '_' || 
+					board[0][0] == playerSymbol && board[2][0] == playerSymbol && board[1][0] == '_')
+			{
+				board[1][0] = computerSymbol;
+			}
+			else if(board[0][1] == computerSymbol && board[2][1] == computerSymbol && board[1][1] == '_' ||
+					board[0][1] == playerSymbol && board[2][1] == playerSymbol && board[1][1] == '_')
+			{
+				board[1][1] = computerSymbol;
+			}
+			else if(board[0][2] == computerSymbol && board[2][2] == computerSymbol && board[1][2] == '_' ||
+					board[0][2] == playerSymbol && board[2][2] == playerSymbol && board[1][2] == '_')
+			{
+				board[1][2] = computerSymbol;
+			}
+			else if(board[0][0] == computerSymbol && board[2][2] == computerSymbol && board[1][1] == '_' ||
+					board[0][0] == playerSymbol && board[2][2] == playerSymbol && board[1][1] == '_')
+			{
+				board[1][1] = computerSymbol;
+			}
+			else if(board[0][2] == computerSymbol && board[2][0] == computerSymbol && board[1][1] == '_' ||
+					board[0][2] == playerSymbol && board[2][0] == playerSymbol && board[1][1] == '_')
+			{
+				board[1][1] = computerSymbol;
+			}
+			else if(board[0][0] == computerSymbol && board[0][1] == computerSymbol && board[0][2] == '_' ||
+					board[0][0] == playerSymbol && board[0][1] == playerSymbol && board[0][2] == '_')
+			{
+				board[0][2] = computerSymbol;
+			}
+			else if(board[1][0] == computerSymbol && board[1][1] == computerSymbol && board[1][2] == '_' ||
+					board[1][0] == playerSymbol && board[1][1] == playerSymbol && board[1][2] == '_')
+			{
+				board[1][2] = computerSymbol;
+			}
+			else if(board[2][0] == computerSymbol && board[2][1] == computerSymbol && board[2][2] == '_' ||
+					board[2][0] == playerSymbol && board[2][1] == playerSymbol && board[2][2] == '_')	
+			{
+				board[2][2] = computerSymbol;
+			}
+			else if(board[0][1] == computerSymbol && board[0][2] == computerSymbol && board[0][0] == '_' ||
+					board[0][1] == playerSymbol && board[0][2] == playerSymbol && board[0][0] == '_')
+			{
+				board[0][0] = computerSymbol;
+			}
+			else if(board[1][1] == computerSymbol && board[1][2] == computerSymbol && board[1][0] == '_' ||
+					board[1][1] == playerSymbol && board[1][2] == playerSymbol && board[1][0] == '_')
+			{
+				board[1][0] = computerSymbol;
+			}
+			else if(board[2][1] == computerSymbol && board[2][2] == computerSymbol && board[2][0] == '_' ||
+					board[2][1] == playerSymbol && board[2][2] == playerSymbol && board[2][0] == '_')
+			{
+				board[2][0] = computerSymbol;
+			}
+			else if(board[0][0] == computerSymbol && board[1][0] == computerSymbol && board[2][0] == '_' ||
+					board[0][0] == playerSymbol && board[1][0] == playerSymbol && board[2][0] == '_')
+			{
+				board[2][0] = computerSymbol;
+			}
+			else if(board[0][1] == computerSymbol && board[1][1] == computerSymbol && board[2][1] == '_' ||
+					board[0][1] == playerSymbol && board[1][1] == playerSymbol && board[2][1] == '_')
+			{
+				board[2][1] = computerSymbol;
+			}
+			else if(board[0][2] == computerSymbol && board[1][2] == computerSymbol && board[2][2] == '_' ||
+					board[0][2] == playerSymbol && board[1][2] == playerSymbol && board[2][2] == '_')
+			{                        
+				board[2][2] = computerSymbol;
+			}
+			else if(board[1][0] == computerSymbol && board[2][0] == computerSymbol && board[0][0] == '_' ||
+					board[1][0] == playerSymbol && board[2][0] == playerSymbol && board[0][0] == '_')
+			{
+				board[0][0] = computerSymbol;
+			}
+			else if(board[1][1] == computerSymbol && board[2][1] == computerSymbol && board[0][1] == '_' || 
+					board[1][1] == playerSymbol && board[2][1] == playerSymbol && board[0][1] == '_')
+			{
+				board[0][1] = computerSymbol;
+			}
+			else if(board[1][2] == computerSymbol && board[2][2] == computerSymbol && board[0][2] == '_' ||
+					board[1][2] == playerSymbol && board[2][2] == playerSymbol && board[0][2] == '_')
+			{                        
+				board[0][2] = computerSymbol;
+			}
+			else if(board[0][0] == computerSymbol && board[1][1] == computerSymbol && board[2][2] == '_' ||
+					board[0][0] == playerSymbol && board[1][1] == playerSymbol && board[2][2] == '_')
+			{                        
+				board[2][2] = computerSymbol;
+			}
+			else
+			{
+				board[row][column] = computerSymbol;
+			}
+>>>>>>> Stashed changes
 			System.out.println("After Computer Turn : ");
 			tieOrNot++;
 			showBoard();
@@ -176,8 +289,12 @@ public class TicTacToe
 		}
 		else
 		{
+<<<<<<< Updated upstream
 			System.out.println("Entered position is occupied please play again");
 			computerPlayer(computerSymbol);			
+=======
+			computerPlayer(computerSymbol,playerSymbol);			
+>>>>>>> Stashed changes
 		}			
 	}
 
@@ -190,11 +307,11 @@ public class TicTacToe
 		{
 
 			playerPlaying(playerSymbol);
-			computerPlayer(computerSymbol);
+			computerPlayer(computerSymbol,playerSymbol);
 		}
 		else
 		{
-			computerPlayer(computerSymbol);
+			computerPlayer(computerSymbol,playerSymbol);
 			playerPlaying(playerSymbol);
 		}		
 	}
