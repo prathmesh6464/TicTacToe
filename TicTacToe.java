@@ -153,90 +153,6 @@ public class TicTacToe
 
 
 		if(board[row][column] == '_')
-<<<<<<< HEAD
-		{                                                                                                                                                                                    
-			if(board[0][0] == computerSymbol && board[0][2] == computerSymbol && board[0][1] == '_')
-			{
-				board[0][1] = computerSymbol;
-			}
-			else if(board[1][0] == computerSymbol && board[1][2] == computerSymbol && board[1][1] == '_')
-			{
-				board[1][1] = computerSymbol;
-			}
-			else if(board[2][0] == computerSymbol && board[2][2] == computerSymbol && board[2][1] == '_')
-			{
-				board[2][1] = computerSymbol;
-			}
-			else if(board[0][0] == computerSymbol && board[2][0] == computerSymbol && board[1][0] == '_')
-			{
-				board[1][0] = computerSymbol;
-			}
-			else if(board[0][1] == computerSymbol && board[2][1] == computerSymbol && board[1][1] == '_')
-			{
-				board[1][1] = computerSymbol;
-			}
-			else if(board[0][2] == computerSymbol && board[2][2] == computerSymbol&& board[1][2] == '_')
-			{
-				board[1][2] = computerSymbol;
-			}
-			else if(board[0][0] == computerSymbol && board[2][2] == computerSymbol && board[1][1] == '_')
-			{
-				board[1][1] = computerSymbol;
-			}else if(board[0][2] == computerSymbol && board[2][0] == computerSymbol && board[1][1] == '_')
-			{
-				board[1][1] = computerSymbol;
-			}
-			if(board[0][0] == computerSymbol && board[0][1] == computerSymbol && board[0][2] == '_')
-			{
-				board[0][2] = computerSymbol;
-			}
-			else if(board[1][0] == computerSymbol && board[1][1] == computerSymbol && board[1][2] == '_')
-			{
-				board[1][2] = computerSymbol;
-			}
-			else if(board[2][0] == computerSymbol && board[2][1] == computerSymbol && board[2][2] == '_')
-			{
-				board[2][2] = computerSymbol;
-			}
-			else if(board[0][1] == computerSymbol && board[0][2] == computerSymbol && board[0][0] == '_')
-			{
-				board[0][0] = computerSymbol;
-			}
-			else if(board[1][1] == computerSymbol && board[1][2] == computerSymbol && board[1][0] == '_')
-			{
-				board[1][0] = computerSymbol;
-			}
-			else if(board[2][1] == computerSymbol && board[2][2] == computerSymbol && board[2][0] == '_')
-			{
-				board[2][0] = computerSymbol;
-			}
-			else if(board[0][0] == computerSymbol && board[1][0] == computerSymbol && board[2][0] == '_')
-			{
-				board[2][0] = computerSymbol;
-			}else if(board[0][1] == computerSymbol && board[1][1] == computerSymbol && board[2][1] == '_')
-			{
-				board[2][1] = computerSymbol;
-			}
-			else if(board[0][2] == computerSymbol && board[1][2] == computerSymbol && board[2][2] == '_')
-			{                        
-				board[2][2] = computerSymbol;
-			}
-			else if(board[1][0] == computerSymbol && board[2][0] == computerSymbol && board[0][0] == '_')
-			{
-				board[0][0] = computerSymbol;
-			}else if(board[1][1] == computerSymbol && board[2][1] == computerSymbol && board[0][1] == '_')
-			{
-				board[0][1] = computerSymbol;
-			}
-			else if(board[1][2] == computerSymbol && board[2][2] == computerSymbol && board[0][2] == '_')
-			{                        
-				board[0][2] = computerSymbol;
-			}
-=======
-<<<<<<< Updated upstream
-		{
-			board[row][column] = computerSymbol;
-=======
 		{                                                                                                                                                                                    
 			if(board[0][0] == computerSymbol && board[0][2] == computerSymbol && board[0][1] == '_' ||
 					board[0][0] == playerSymbol && board[0][2] == playerSymbol && board[0][1] == '_')
@@ -343,15 +259,10 @@ public class TicTacToe
 			{                        
 				board[2][2] = computerSymbol;
 			}
->>>>>>> CheckOpponentCanWinOrPlayFeature
 			else
 			{
 				board[row][column] = computerSymbol;
 			}
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
->>>>>>> CheckOpponentCanWinOrPlayFeature
 			System.out.println("After Computer Turn : ");
 			tieOrNot++;
 			showBoard();
@@ -375,15 +286,7 @@ public class TicTacToe
 		}
 		else
 		{
-<<<<<<< HEAD
-=======
-<<<<<<< Updated upstream
-			System.out.println("Entered position is occupied please play again");
->>>>>>> CheckOpponentCanWinOrPlayFeature
-			computerPlayer(computerSymbol);			
-=======
 			computerPlayer(computerSymbol,playerSymbol);			
->>>>>>> Stashed changes
 		}			
 	}
 
