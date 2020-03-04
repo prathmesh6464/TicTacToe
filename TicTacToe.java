@@ -192,6 +192,10 @@ public class TicTacToe
 			{
 				board[2][2] = computerSymbol;
 			}
+			else if(board[1][1] == '_')
+			{
+				board[1][1] = computerSymbol;
+			}
 			else if(board[1][0] == computerSymbol && board[1][2] == computerSymbol && board[1][1] == '_' ||
 					board[1][0] == playerSymbol && board[1][2] == playerSymbol && board[1][1] == '_')
 			{
