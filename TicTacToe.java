@@ -107,9 +107,9 @@ public class TicTacToe
 	{
 		//TAKING INPUT FROM USER 
 		Scanner sc = new Scanner(System.in);
-		System.out.println("Enter row number : ");
+		System.out.println("Enter row number (0-2) : ");
 		int row =sc.nextInt();
-		System.out.println("Enter column number : ");
+		System.out.println("Enter column number (0-2): ");
 		int column =sc.nextInt();
 		System.out.println("Play enter your value ("+playerSymbol+") : ");
 		char userValue = sc.next().charAt(0);
