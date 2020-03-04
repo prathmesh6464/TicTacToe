@@ -6,7 +6,7 @@ public class TicTacToe
 	static char[][] board = new char[3][3];
 
 
-	//STATIC VARIABLE
+	//STATIC VARIABLE FOR CHECKING TIE OR NOT TIE
 	static int tieOrNot = 0;
 
 
