@@ -145,6 +145,7 @@ public class TicTacToe
 		int column = getRowColumn();
 		int tempComparision = column + (row - 1);
 
+		
 		//CONDITIONS FOR CHECKING BLOCK PLAYER WINNING MOVE AND WINNING MOVES OF COMPUTER PLAYER 
 		if(board[row][column] == '_')
 		{    
