@@ -47,6 +47,7 @@ public class TicTacToe
 	}
 
 
+	//SHOW BOARD
 	static void showBoard()
 	{
 		for(int iter=0; iter<3; iter++)
@@ -137,7 +138,7 @@ public class TicTacToe
 	}
 
 
-	//COMPUTER
+	//COMPUTER PLAYER
 	static void computerPlayer(char computerSymbol,char playerSymbol)
 	{
 		//TAKING RANDOM ROW AND COLUMN
@@ -148,8 +149,7 @@ public class TicTacToe
 		
 		//CONDITIONS FOR CHECKING BLOCK PLAYER WINNING MOVE AND WINNING MOVES OF COMPUTER PLAYER 
 		if(board[row][column] == '_')
-		{    
-
+		{  
 			if(board[0][2] == computerSymbol && board[2][2] == computerSymbol && board[1][2] == '_' || board[0][2] == playerSymbol && board[2][2] == playerSymbol && board[1][2] == '_')
 			{
 				board[1][2] = computerSymbol;
@@ -308,7 +308,8 @@ public class TicTacToe
 		}		
 	}
 
-
+	
+	//MAIN METHOD
 	public static void main(String[] args)
 	{
 		//METHOD CALLED
