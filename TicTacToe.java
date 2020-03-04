@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.Scanner;
 public class TicTacToe
 {
-	//2D ARRAY DECLARED 
+	//2D ARRAY DECLARED (BOARD)
 	static char[][] board = new char[3][3];
 
 
@@ -151,11 +151,11 @@ public class TicTacToe
 		int row = getRowColumn();
 		int column = getRowColumn();
 
-		
+
 		//CONDITIONS FOR CHECKING BLOCK PLAYER WINNING MOVE AND WINNING MOVES OF COMPUTER PLAYER 
 		if(board[row][column] == '_')
 		{    
-			
+
 			if(board[0][2] == computerSymbol && board[2][2] == computerSymbol && board[1][2] == '_' ||
 					board[0][2] == playerSymbol && board[2][2] == playerSymbol && board[1][2] == '_')
 			{
