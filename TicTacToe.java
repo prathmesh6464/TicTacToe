@@ -150,7 +150,7 @@ public class TicTacToe
 		//TAKING RANDOM ROW AND COLUMN
 		int row = getRowColumn();
 		int column = getRowColumn();
-
+		int tempComparision = column + (row - 1);
 
 		//CONDITIONS FOR CHECKING BLOCK PLAYER WINNING MOVE AND WINNING MOVES OF COMPUTER PLAYER 
 		if(board[row][column] == '_')
@@ -176,23 +176,23 @@ public class TicTacToe
 			{
 				board[0][1] = computerSymbol;
 			}
-			else if(board[0][0] == '_')
+			else if(board[0][0] == '_' && 0 == tempComparision)
 			{
 				board[0][0] = computerSymbol;
 			}
-			else if(board[0][2] == '_')
+			else if(board[0][2] == '_' &&  1 == tempComparision)
 			{
 				board[0][2] = computerSymbol;
 			}
-			else if(board[2][0] == '_')
+			else if(board[2][0] == '_' && 2 == tempComparision)
 			{
 				board[2][0] = computerSymbol;
 			}
-			else if(board[2][2] == '_')
+			else if(board[2][2] == '_' && 3 == tempComparision)
 			{
 				board[2][2] = computerSymbol;
 			}
-			else if(board[1][1] == '_')
+			else if(board[1][1] == '_' && board[0][0] != '_' && board[0][2] != '_' && board[2][0] != '_' && board[2][2] != '_')
 			{
 				board[1][1] = computerSymbol;
 			}
